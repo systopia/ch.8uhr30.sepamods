@@ -1,7 +1,33 @@
 <?php
+/*-------------------------------------------------------+
+| CiviSEPA Modifications for CH                          |
+| Copyright (C) 2018 SYSTOPIA                            |
+| Author: B. Endres (endres@systopia.de)                 |
++--------------------------------------------------------+
+| This program is released as free software under the    |
+| Affero GPL license. You can redistribute it and/or     |
+| modify it under the terms of this license which you    |
+| can read by viewing the included agpl.txt or online    |
+| at www.gnu.org/licenses/agpl.html. Removal of this     |
+| copyright header is strictly prohibited without        |
+| written permission from the original author(s).        |
++--------------------------------------------------------*/
 
 require_once 'sepamods.civix.php';
 use CRM_Sepamods_ExtensionUtil as E;
+
+/**
+ * Hook
+ * @param $page
+ */
+function sepamods_civicrm_pageRun( &$page ) {
+  $pageName = $page->getVar('_name');
+  if ($pageName == 'CRM_Sepa_Page_DashBoard') {
+    // inject JS adjustments
+    CRM_Core_Resources::singleton()->addVars('sepamods', array('setfailed_url' => CRM_Utils_System::url('civicrm/sepa/setfailed', 'id=__GROUPID__')));
+    CRM_Core_Resources::singleton()->addScriptFile('ch.8uhr30.sepamods', 'js/dashboard.js');
+  }
+}
 
 /**
  * Implements hook_civicrm_config().
