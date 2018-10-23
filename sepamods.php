@@ -24,7 +24,7 @@ function sepamods_civicrm_pageRun( &$page ) {
   $pageName = $page->getVar('_name');
   if ($pageName == 'CRM_Sepa_Page_DashBoard') {
     // inject JS adjustments
-    CRM_Core_Resources::singleton()->addVars('sepamods', array('setfailed_url' => CRM_Utils_System::url('civicrm/sepa/setfailed', 'id=__GROUPID__')));
+    CRM_Core_Resources::singleton()->addVars('sepamods', array('setfailed_url' => CRM_Utils_System::url('civicrm/sepa/setfailed', 'gid=__GROUPID__')));
     CRM_Core_Resources::singleton()->addScriptFile('ch.8uhr30.sepamods', 'js/dashboard.js');
   }
 }

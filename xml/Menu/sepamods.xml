@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<menu>
+  <item>
+    <path>civicrm/sepa/setfailed</path>
+    <page_callback>CRM_Sepamods_Form_FinaliseGroup</page_callback>
+    <title>SEPA Gruppe Finalisieren</title>
+    <access_arguments>access CiviCRM</access_arguments>
+  </item>
+</menu>
